@@ -1,8 +1,7 @@
-FROM python:3.5
+FROM python:2.7
 
-RUN apt-get install software-properties-common \
-    && apt-add-repository ppa:ansible/ansible \
-    && apt-get install -y --no-install-recommends ansible \
-	&& rm -rf /var/lib/apt/lists/*
 RUN pip install setuptools pip --upgrade --force-reinstall
-RUN pip install pytest pytest-django pytest-pep8 mock mock-django numpy pandas psycopg2 'django<1.10'
+RUN pip install ansible
+RUN apt-get update && apt-get install -y python3 python3-dev 
+RUN virtualenv /venv/testenv/ -p `which python3`
+RUN /venv/testenv/bin/pip install pytest pytest-django pytest-pep8 mock mock-django numpy pandas psycopg2 'django<1.10'
