@@ -9,3 +9,4 @@ RUN /venv/testenv/bin/pip install pytest pytest-django pytest-pep8 mock mock-dja
 RUN nodeenv /nenv/testenv/
 ADD package.json package.json
 RUN source /nenv/testenv/bin/activate && npm install
+RUN . /nenv/testenv/bin/activate && npm install
