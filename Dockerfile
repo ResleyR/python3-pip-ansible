@@ -8,5 +8,4 @@ RUN virtualenv /venv/testenv/ -p `which python3`
 RUN /venv/testenv/bin/pip install pytest pytest-django pytest-pep8 mock mock-django numpy pandas psycopg2 'django<1.10'
 RUN nodeenv /nenv/testenv/
 ADD package.json package.json
-RUN source /nenv/testenv/bin/activate && npm install
 RUN . /nenv/testenv/bin/activate && npm install
