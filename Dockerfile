@@ -3,8 +3,13 @@ FROM ubuntu:16.04
 # ansible runs only on python2. so we install python2 as system python
 # our testcases runs on python3. so we make a python3 virtualenv at /venv/testenv/ and run tests with it.
 
+# need libssl-dev for pip install cryptography
+# need libpq-dev for pip install psycopg2
+# need git for pip installing files from github
+# need libfontconfig1 for phantomJS for frontend testing
+
 ENV LANG C.UTF-8
-RUN apt-get update && apt-get install -y python python-dev python3.5 python3.5-dev python-pip virtualenv libssl-dev libpq-dev git build-essential
+RUN apt-get update && apt-get install -y python python-dev python3.5 python3.5-dev python-pip virtualenv libssl-dev libpq-dev git build-essential libfontconfig1 libfontconfig1-dev
 RUN pip install setuptools pip --upgrade --force-reinstall
 RUN pip install ansible==2.1.2.0
 RUN pip install nodeenv==1.1.0
