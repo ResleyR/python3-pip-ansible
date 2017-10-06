@@ -11,8 +11,8 @@ FROM ubuntu:16.04
 ENV LANG C.UTF-8
 RUN apt-get update && apt-get install -y python python-dev python3.5 python3.5-dev python-pip virtualenv libssl-dev libpq-dev git build-essential libfontconfig1 libfontconfig1-dev
 RUN pip install setuptools pip --upgrade --force-reinstall
-RUN pip install ansible==2.1.2.0
-RUN pip install nodeenv==1.1.0
+RUN pip install ansible==2.4.0.0
+RUN pip install nodeenv==1.2.0
 RUN virtualenv /venv/testenv/ -p `which python3.5`
 RUN nodeenv /nenv/testenv/
 
